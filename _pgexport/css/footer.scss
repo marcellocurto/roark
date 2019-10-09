@@ -1,0 +1,13 @@
+//footer.scss
+footer {
+    display: flex;
+    padding: $margin-sm;
+    justify-content: space-between;
+    flex-direction: row;
+    clear: both;
+}
+
+.footer-text-logo {
+    font-weight: bold;
+    text-transform: uppercase;
+}

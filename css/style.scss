@@ -1,0 +1,28 @@
+/*
+Theme Name: Roark
+Theme URI: https://roark.at
+Author: Marcello Curto
+Author URI: https://marcellocurto.com
+Description: Just an agency theme.
+Version: 2.1
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: roark_agency_theme
+*/
+//style.scss
+@import "_normalize.scss";
+@import "_shared-styles.scss";
+@import "_header.scss";
+@import "_front-page.scss";
+@import "_main.scss";
+@import "_footer.scss";
+@import "_at-media.scss";
+@import "_plugins.scss";
+@import "_atom-one-light-and-dark.scss";
+
+$fa-font-path: '../roark/css/font-aweseome/icons/';
+
+@import "font-aweseome/fontawesome.scss";
+@import "font-aweseome/solid.scss";
+@import "font-aweseome/brands.scss";
+@import "font-aweseome/regular.scss";

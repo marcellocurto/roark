@@ -1,0 +1,35 @@
+//header.scss
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: $margin-sm;
+}
+
+.text-logo {
+    text-transform: uppercase;
+    font-size: $size-h1;
+    margin: 0;
+    font-weight: 700;
+    line-height: 34px;
+}
+
+header .menu-item {
+    font-size: 24px;
+    padding-left: 20px;
+    font-style: italic;
+    line-height: 24px;
+}
+
+.menu li a:hover,
+.text-logo a:hover {
+    text-decoration: none;
+    color: $color-accent;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
