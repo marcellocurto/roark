@@ -192,10 +192,6 @@ if ( ! function_exists( 'roark_agency_theme_enqueue_scripts' ) ) :
     wp_register_style( 'typekitfonts', 'https://use.typekit.net/bqf5yhx.css', null, null, 'all' );
     wp_enqueue_style( 'typekitfonts' );
 
-    wp_deregister_style( 'custom_style' );
-    wp_register_style( 'custom_style', get_template_directory_uri() . '/style-custom.css', null, null, 'all' );
-    wp_enqueue_style( 'custom_style' );
-
     wp_deregister_style( 'style' );
     wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', false, null, 'all');
 

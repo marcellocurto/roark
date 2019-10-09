@@ -341,8 +341,7 @@ cite {
     padding: 20px;
     border: none;
     border-radius: 0;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #000000;
+    border-left: 2px solid #000000;
     background-color: #ffffff;
     margin-bottom: 40px;
 }
