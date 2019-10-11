@@ -810,13 +810,31 @@ footer {
         color: #ffffff;
     }
 
+    a:hover {
+        color: yellow;
+    }
+
+    .menu li a:hover,
+    .text-logo a:hover {
+        color: yellow;
+    }
+
+    header,
+    article {
+        border-bottom: 2px solid #4b6975;
+    }
+
+    footer {
+        border-top: 2px solid #4b6975;
+    }
+
     .wp-block-code {
         border: none;
         background-color: #2a3d46;
     }
 
     .wp-block-quote:not(.is-large):not(.is-style-large) {
-        border-left: 2px solid #2a3d46;
+        border-left: 2px solid #4b6975;
     }
 }
 

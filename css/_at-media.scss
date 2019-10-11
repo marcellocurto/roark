@@ -99,9 +99,28 @@
     background-color: $color-background-dark;
     color: $color-white;
   }
+
   a {
     text-decoration: none;
     color: $color-white;
+  }
+
+  a:hover {
+    color: $color-hover-dark;
+  }
+
+  .menu li a:hover,
+  .text-logo a:hover {
+    color: $color-hover-dark;
+  }
+
+  header,
+  article {
+    border-bottom: 2px solid $border-color-dark;
+  }
+
+  footer {
+    border-top: 2px solid $border-color-dark;
   }
 
   .wp-block-code {
@@ -110,6 +129,6 @@
   }
 
   .wp-block-quote:not(.is-large):not(.is-style-large) {
-    border-left: 2px solid $color-background-dark;
+    border-left: 2px solid $border-color-dark;
   }
 }

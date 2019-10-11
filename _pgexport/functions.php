@@ -184,6 +184,9 @@ if ( ! function_exists( 'roark_agency_theme_enqueue_scripts' ) ) :
 
         /* Pinegrow generated Enqueue Scripts Begin */
 
+    wp_register_script( 'night_script', get_template_directory_uri() . '/js/night.js', null, null, true );
+    wp_enqueue_script( 'night_script' );
+
     /* Pinegrow generated Enqueue Scripts End */
 
         /* Pinegrow generated Enqueue Styles Begin */
