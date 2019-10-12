@@ -82,6 +82,16 @@ if (!function_exists('roark_agency_theme_setup')):
             )
         );
 
+        function roark_js_async_attr($tag){
+             $scripts_to_include = array('gtag');     
+            foreach($scripts_to_include as $include_script){
+                if(true == strpos($tag, $include_script ))
+                return str_replace( ' src', ' async="async" src', $tag );
+            }
+                return $tag;     
+        }
+        add_filter( 'script_loader_tag', 'roark_js_async_attr', 10 );
+
         /*
          * Enable support for Page excerpts.
          */
@@ -147,8 +157,11 @@ if (!function_exists('roark_agency_theme_enqueue_scripts')):
     function roark_agency_theme_enqueue_scripts()
 {
 
-        wp_register_script('night_script', get_template_directory_uri() . '/assets/roark.js', null, null, true);
-        wp_enqueue_script('night_script');
+        wp_register_script('roark_script', get_template_directory_uri() . '/assets/roark.js', null, null, true);
+        wp_enqueue_script('roark_script');
+
+        wp_register_script('gtag', 'https://www.googletagmanager.com/gtag/js?id=UA-19008069-7', null, null, true);
+        wp_enqueue_script('gtag');
 
         wp_deregister_style('typekitfonts');
         wp_register_style('typekitfonts', 'https://use.typekit.net/bqf5yhx.css', null, null, 'all');
