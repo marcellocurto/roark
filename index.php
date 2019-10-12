@@ -74,11 +74,23 @@ $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient
             <div class="post-part-2">
                 <div class="image-wrapper">
                     <a href="<?php echo esc_url( get_permalink() ); ?>">
-<?php echo PG_Image::getPostImage( null, 'large', array(
-                                'class' => 'image-post-' . $id_of_post . ' attachment-medium size-medium wp-post-image wp-post-image wp-post-image wp-post-image',
-                                'sizes' => '(max-width: 1024px) 100vw, 1024px'
-                        ), null, null )
+
+<?php
+$size = 'large';
+echo PG_Image::getPostImage( null, $size, array(
+'class' => 'image-post-' . $id_of_post . ' attachment-medium size-medium wp-post-image wp-post-image wp-post-image wp-post-image',
+'sizes' => '(max-width: 1024px) 100vw, 1024px'
+), null, null )
 ?> 
+
+<?php 
+$alternate_image = get_field('night_image');
+if( $alternate_image ) {
+    $dark_image[] = wp_get_attachment_image( $alternate_image, $size, array(
+        'class' => 'image-post-' . $id_of_post . ' attachment-medium size-medium wp-post-image wp-post-image wp-post-image wp-post-image',
+        'sizes' => '(max-width: 1024px) 100vw, 1024px' ));
+}
+?>
                     </a>
                 </div>
             </div>
@@ -117,5 +129,7 @@ if ( !empty($custom_css_light) || !empty($custom_css_dark) ) {
     do_action( 'custom_style_action', $custom_css );
 }
 ?>
+
+<?php print_r($dark_image) ?>
 
 <?php get_footer(); ?>

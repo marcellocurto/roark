@@ -1,3 +1,0 @@
-# Roark Theme
-
-![](screenshot.png)
