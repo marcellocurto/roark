@@ -19,11 +19,10 @@ let rename = require('gulp-rename'),
 
 // Project related variables
 let dist = './assets/',
-  styleSRC = './src/scss/smartimagetag.scss',
+  styleSRC = './src/scss/style.scss',
   scriptPath = './src/js/',
   scriptSRC = [
-    scriptPath + 'image-upload.js',
-    scriptPath + 'namethatcolor.js',
+    scriptPath + 'night.js',
   ],
   styleWatch = './src/scss/**/*.scss',
   scriptWatch = './src/js/**/*.js';
@@ -33,23 +32,19 @@ function css(cb) {
     .pipe(sourcemaps.init())
     .pipe(sass({
       errorLogToConsole: true,
-      outputStyle: 'compressed',
     }))
     .on('error', console.error.bind(console))
     .pipe(autoprefixer({
       cascade: false,
     }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest('./'));
   cb();
 };
 
 function javascript(cb) {
   gulp.src(scriptSRC)
-    .pipe(concat('smartimagetag.min.js'))
+    .pipe(concat('roark.js'))
     .pipe(gulpif(options.has('production'), stripDebug()))
     // .pipe(uglify())
     .pipe(gulp.dest(dist));
