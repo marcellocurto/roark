@@ -19,6 +19,8 @@ let rename = require('gulp-rename'),
 
 // Project related variables
 let dist = './assets/',
+  production = '/Users/marcello/Local\ Sites/roark/app/public/wp-content/themes/roark/',
+  phpSRC = './**/*.php',
   styleSRC = './src/scss/style.scss',
   styleSRCEditor = './src/scss/editor-style.scss',
   scriptPath = './src/js/',
@@ -40,7 +42,8 @@ function css(cb) {
       cascade: false,
     }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest(production));
   cb();
 };
 
@@ -55,7 +58,8 @@ function css_editor(cb) {
       cascade: false,
     }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./assets/'));
+    .pipe(gulp.dest('./assets/'))
+    .pipe(gulp.dest(production + 'assets/'));
   cb();
 };
 
@@ -63,19 +67,39 @@ function javascript(cb) {
   gulp.src(scriptSRC)
     .pipe(concat('roark.js'))
     .pipe(gulpif(options.has('production'), stripDebug()))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist))
+    .pipe(gulp.dest(production + 'assets/'));
   cb();
 };
+
+function php(cb) {
+  gulp.src(phpSRC)
+    .pipe(gulp.dest(production));
+  cb();
+};
+
+function deploy(cb) {
+    gulp.src('./icons/**')
+    .pipe(gulp.dest(production + 'icons/'));
+    gulp.src('./inc/**')
+    .pipe(gulp.dest(production + 'inc/'));
+    gulp.src('./screenshot.png')
+    .pipe(gulp.dest(production));
+    cb();
+};
+
 
 function watch(cb) {
   gulp.watch(styleWatch, css);
   gulp.watch(scriptWatch, javascript);
+  gulp.watch(phpWatch, php);
   cb();
 };
 
 exports.css = css;
 exports.javascript = javascript;
+exports.php = php;
 exports.watch = watch;
 
-let build = gulp.parallel([watch, css, css_editor, javascript]);
+let build = gulp.parallel([watch, css, css_editor, javascript, php, deploy]);
 gulp.task('default', build);

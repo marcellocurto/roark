@@ -9,6 +9,7 @@ License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: roark_agency_theme
 */
+
 //style.scss
 @import "_normalize.scss";
 @import "_shared-styles.scss";
@@ -20,7 +21,7 @@ Text Domain: roark_agency_theme
 @import "_plugins.scss";
 @import "_atom-one-light-and-dark.scss";
 
-$fa-font-path: '/icons';
+$fa-font-path: 'icons';
 
 @import "font-aweseome/fontawesome.scss";
 @import "font-aweseome/solid.scss";
