@@ -82,15 +82,18 @@ if (!function_exists('roark_agency_theme_setup')):
             )
         );
 
-        function roark_js_async_attr($tag){
-             $scripts_to_include = array('gtag');     
-            foreach($scripts_to_include as $include_script){
-                if(true == strpos($tag, $include_script ))
-                return str_replace( ' src', ' async="async" src', $tag );
+        function roark_js_async_attr($tag)
+    {
+            $scripts_to_include = array('gtag');
+            foreach ($scripts_to_include as $include_script) {
+                if (true == strpos($tag, $include_script)) {
+                    return str_replace(' src', ' async="async" src', $tag);
+                }
+
             }
-                return $tag;     
+            return $tag;
         }
-        add_filter( 'script_loader_tag', 'roark_js_async_attr', 10 );
+        add_filter('script_loader_tag', 'roark_js_async_attr', 10);
 
         /*
          * Enable support for Page excerpts.
