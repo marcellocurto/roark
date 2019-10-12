@@ -20,12 +20,14 @@ let rename = require('gulp-rename'),
 // Project related variables
 let dist = './assets/',
   styleSRC = './src/scss/style.scss',
+  styleSRCEditor = './src/scss/editor-style.scss',
   scriptPath = './src/js/',
   scriptSRC = [
     scriptPath + 'night.js',
   ],
   styleWatch = './src/scss/**/*.scss',
-  scriptWatch = './src/js/**/*.js';
+  scriptWatch = './src/js/**/*.js',
+  phpWatch = './**/*.php';
 
 function css(cb) {
   gulp.src(styleSRC)
@@ -42,11 +44,25 @@ function css(cb) {
   cb();
 };
 
+function css_editor(cb) {
+  gulp.src(styleSRCEditor)
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      errorLogToConsole: true,
+    }))
+    .on('error', console.error.bind(console))
+    .pipe(autoprefixer({
+      cascade: false,
+    }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./assets/'));
+  cb();
+};
+
 function javascript(cb) {
   gulp.src(scriptSRC)
     .pipe(concat('roark.js'))
     .pipe(gulpif(options.has('production'), stripDebug()))
-    // .pipe(uglify())
     .pipe(gulp.dest(dist));
   cb();
 };
@@ -61,5 +77,5 @@ exports.css = css;
 exports.javascript = javascript;
 exports.watch = watch;
 
-let build = gulp.parallel([watch, css, javascript]);
+let build = gulp.parallel([watch, css, css_editor, javascript]);
 gulp.task('default', build);

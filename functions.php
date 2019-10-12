@@ -65,7 +65,7 @@ function roark_agency_theme_setup() {
     add_theme_support( 'wp-block-styles' );
 
     add_theme_support( 'editor-styles' );
-    add_editor_style( 'css/editor-style.css' );
+    add_editor_style( 'assets/editor-style.css' );
     add_editor_style( 'https://use.typekit.net/bqf5yhx.css' );
 
     add_action('wp_footer', function() {
@@ -184,7 +184,7 @@ if ( ! function_exists( 'roark_agency_theme_enqueue_scripts' ) ) :
 
         /* Pinegrow generated Enqueue Scripts Begin */
 
-    wp_register_script( 'night_script', get_template_directory_uri() . '/js/night.js', null, null, true );
+    wp_register_script( 'night_script', get_template_directory_uri() . '/assets/roark.js', null, null, true );
     wp_enqueue_script( 'night_script' );
 
     /* Pinegrow generated Enqueue Scripts End */
