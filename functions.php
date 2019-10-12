@@ -7,9 +7,7 @@ function roark_agency_theme_setup() {
      * Make theme available for translation.
      * Translations can be filed in the /languages/ directory.
      */
-    /* Pinegrow generated Load Text Domain Begin */
     load_theme_textdomain( 'roark_agency_theme', get_template_directory() . '/languages' );
-    /* Pinegrow generated Load Text Domain End */
 
     // Add default posts and comments RSS feed links to head.
     add_theme_support( 'automatic-feed-links' );
@@ -32,18 +30,9 @@ function roark_agency_theme_setup() {
     ) );
 
 /*
-     * Register custom menu locations
-     */
-    /* Pinegrow generated Register Menus Begin */
-
-    /* Pinegrow generated Register Menus End */
-
-/*
     * Set image sizes
      */
-    /* Pinegrow generated Image sizes Begin */
 
-    /* Pinegrow generated Image sizes End */
 
     /*
      * Switch default core markup for search form, comment form, and comments
@@ -107,7 +96,6 @@ if ( ! function_exists( 'roark_agency_theme_init' ) ) :
 
 function roark_agency_theme_init() {
 
-
     // Use categories and tags with attachments
     register_taxonomy_for_object_type( 'category', 'attachment' );
     register_taxonomy_for_object_type( 'post_tag', 'attachment' );
@@ -115,16 +103,10 @@ function roark_agency_theme_init() {
     /*
      * Register custom post types. You can also move this code to a plugin.
      */
-    /* Pinegrow generated Custom Post Types Begin */
-
-    /* Pinegrow generated Custom Post Types End */
 
     /*
      * Register custom taxonomies. You can also move this code to a plugin.
      */
-    /* Pinegrow generated Taxonomies Begin */
-
-    /* Pinegrow generated Taxonomies End */
 
 }
 endif; // roark_agency_theme_setup
@@ -139,9 +121,6 @@ function roark_agency_theme_custom_image_sizes_names( $sizes ) {
     /*
      * Add names of custom image sizes.
      */
-    /* Pinegrow generated Image Sizes Names Begin*/
-    /* This code will be replaced by returning names of custom image sizes. */
-    /* Pinegrow generated Image Sizes Names End */
     return $sizes;
 }
 add_action( 'image_size_names_choose', 'roark_agency_theme_custom_image_sizes_names' );
@@ -152,13 +131,6 @@ endif;// roark_agency_theme_custom_image_sizes_names
 if ( ! function_exists( 'roark_agency_theme_widgets_init' ) ) :
 
 function roark_agency_theme_widgets_init() {
-
-    /*
-     * Register widget areas.
-     */
-    /* Pinegrow generated Register Sidebars Begin */
-
-    /* Pinegrow generated Register Sidebars End */
 }
 add_action( 'widgets_init', 'roark_agency_theme_widgets_init' );
 endif;// roark_agency_theme_widgets_init
@@ -169,11 +141,6 @@ if ( ! function_exists( 'roark_agency_theme_customize_register' ) ) :
 
 function roark_agency_theme_customize_register( $wp_customize ) {
     // Do stuff with $wp_customize, the WP_Customize_Manager object.
-
-    /* Pinegrow generated Customizer Controls Begin */
-
-    /* Pinegrow generated Customizer Controls End */
-
 }
 add_action( 'customize_register', 'roark_agency_theme_customize_register' );
 endif;// roark_agency_theme_customize_register
@@ -182,14 +149,8 @@ endif;// roark_agency_theme_customize_register
 if ( ! function_exists( 'roark_agency_theme_enqueue_scripts' ) ) :
     function roark_agency_theme_enqueue_scripts() {
 
-        /* Pinegrow generated Enqueue Scripts Begin */
-
     wp_register_script( 'night_script', get_template_directory_uri() . '/assets/roark.js', null, null, true );
     wp_enqueue_script( 'night_script' );
-
-    /* Pinegrow generated Enqueue Scripts End */
-
-        /* Pinegrow generated Enqueue Styles Begin */
 
     wp_deregister_style( 'typekitfonts' );
     wp_register_style( 'typekitfonts', 'https://use.typekit.net/bqf5yhx.css', null, null, 'all' );
@@ -198,19 +159,13 @@ if ( ! function_exists( 'roark_agency_theme_enqueue_scripts' ) ) :
     wp_deregister_style( 'style' );
     wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', false, null, 'all');
 
-    /* Pinegrow generated Enqueue Styles End */
-
     }
     add_action( 'wp_enqueue_scripts', 'roark_agency_theme_enqueue_scripts' );
 endif;
 
 function pgwp_sanitize_placeholder($input) { return $input; }
-/*
- * Resource files included by Pinegrow.
- */
-/* Pinegrow generated Include Resources Begin */
+
 require_once "inc/wp_pg_helpers.php";
 require_once "inc/wp_pg_pagination.php";
 
-    /* Pinegrow generated Include Resources End */
 ?>
