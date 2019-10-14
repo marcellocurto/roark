@@ -172,7 +172,6 @@ if (!function_exists('roark_agency_theme_enqueue_scripts')):
 
         wp_deregister_style('style');
         wp_enqueue_style('style', get_template_directory_uri() . '/style.css', false, null, 'all');
-
     }
     add_action('wp_enqueue_scripts', 'roark_agency_theme_enqueue_scripts');
 endif;

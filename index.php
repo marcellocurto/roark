@@ -39,43 +39,66 @@ if (have_posts()):
 
         $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient(to ' . $direction_color . ', ' . $left_dark . ', ' . $right_dark . ')} ';
         ?>
-																			        <article <?php post_class('post-wrapper'); ?> id="post-<?php the_ID(); ?>">
-																			            <div class="post-part-1">
-																			                <a href="<?php echo esc_url(get_permalink()); ?>"><h1><?php the_title(); ?></h1></a>
-																			                <?php $cats = array();foreach (get_the_category($post_id) as $c) {$cat = get_category($c);
-            array_push($cats, $cat->name);}
-        $post_categories = implode(' / ', $cats);if (sizeOf($cats) > 0) {echo '<div class="category-wrapper"><p>' . $post_categories . '</p></div>';} ?>
-																			                <div class="excerpt-wrapper">
-																			                    <?php the_excerpt(); ?>
-																			                </div>
-																			                <?php if (is_post_type_archive('about')): ?>
-																			                    <div class="contact-wrapper">
-																			                        <?php if (get_field('facebook')): ?>
-																			                            <span class="icon-wrapper"><a href="<?php echo esc_url(get_field('facebook')); ?>" target="_blank"> <i class="fab fa-facebook"></i> </a></span>
-																			                        <?php endif; ?>
-									                        <?php if (get_field('instagram')): ?>
-									                            <span class="icon-wrapper"><a href="<?php echo esc_url(get_field('instagram')); ?>" target="_blank"> <i class="fab fa-instagram"></i> </a></span>
-									                        <?php endif; ?>
-                        <?php if (get_field('linkedin')): ?>
-                            <span class="icon-wrapper"><a href="<?php echo esc_url(get_field('linkedin')); ?>" target="_blank"> <i class="fab fa-linkedin-in"></i> </a></span>
-                        <?php endif; ?>
-                        <?php if (get_field('email')): ?>
-                            <span class="icon-wrapper"><a href="<?php echo esc_url('mailto:' . get_field('email')); ?>" target="_blank"> <i class="far fa-envelope"></i> </a></span>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-                <?php if (!is_post_type_archive('about')): ?>
-                    <div class="date-wrapper">
-                        <p><?php echo get_the_time('Y'); ?></p>
-                    </div>
-                <?php endif; ?>
-                <div class="more-wrapper">
-                    <span class="icon-wrapper"><a href="<?php echo esc_url(get_permalink()); ?>"> <i class="fas fa-arrow-right"></i> </a></span>
-                </div>
-            </div>
-            <div class="post-part-2">
-                <div class="image-wrapper">
-                    <a href="<?php echo esc_url(get_permalink()); ?>">
+
+        <article <?php post_class('post-wrapper'); ?> id="post-<?php the_ID(); ?>">
+        <div class="post-part-1">
+            <a href="<?php echo esc_url(get_permalink()); ?>"><h1><?php the_title(); ?></h1></a>
+            <?php
+            $cats = array();
+            foreach (get_the_category($post_id) as $c) {
+                $cat = get_category($c);
+                array_push($cats, $cat->name);
+            }
+        
+            $post_categories = implode(' / ', $cats);
+
+            if (sizeOf($cats) > 0) {
+            echo '<div class="category-wrapper"><p>' . $post_categories . '</p></div>';
+            } 
+            ?>
+		<div class="excerpt-wrapper"><?php the_excerpt(); ?></div>
+
+    <?php if (is_post_type_archive('about')): ?>
+ 
+        <div class="contact-wrapper">
+ 
+        <?php if (get_field('facebook')): ?>
+            <span class="icon-wrapper"><a href="<?php echo esc_url(get_field('facebook')); ?>" target="_blank">     <i class="fab fa-facebook"></i> </a></span>
+        <?php endif; ?>
+        
+        <?php if (get_field('instagram')): ?>
+            <span class="icon-wrapper"><a href="<?php echo esc_url(get_field('instagram')); ?>" target="_blank"> <i class="fab fa-instagram"></i> </a></span>
+        <?php endif; ?>
+        
+        <?php if (get_field('linkedin')): ?>
+            <span class="icon-wrapper"><a href="<?php echo esc_url(get_field('linkedin')); ?>" target="_blank"> <i class="fab fa-linkedin-in"></i> </a></span>
+        <?php endif; ?>
+
+        <?php if (get_field('github')): ?>
+            <span class="icon-wrapper"><a href="<?php echo esc_url(get_field('github')); ?>" target="_blank"> <i class="fab fa-github"></i> </a></span>
+        <?php endif; ?>
+
+        <?php if (get_field('email')): ?>
+            <span class="icon-wrapper"><a href="<?php echo esc_url('mailto:' . get_field('email')); ?>" target="_blank"> <i class="far fa-envelope"></i> </a></span>
+        <?php endif; ?>
+        
+        </div>
+
+    <?php endif; ?>
+
+<?php if (!is_post_type_archive('about')): ?>
+    <div class="date-wrapper">
+        <p><?php echo get_the_time('Y'); ?></p>
+    </div>
+<?php endif; ?>
+
+<div class="more-wrapper">
+    <span class="icon-wrapper"><a href="<?php echo esc_url(get_permalink()); ?>"> <i class="fas fa-arrow-right"></i> </a></span>
+</div>
+</div>
+<div class="post-part-2">
+    <div class="image-wrapper">
+        <a href="<?php echo esc_url(get_permalink()); ?>">
 
 <?php
 $size = 'large';
@@ -123,7 +146,8 @@ if (!empty($custom_css_light) || !empty($custom_css_dark)) {
     add_action('custom_style_action', 'roark_enqueue_post_css', 10, 1);
     $custom_css = $custom_css_light . '@media (prefers-color-scheme: dark) {' . $custom_css_dark . '}';
 
-    function roark_enqueue_post_css($css) {
+    function roark_enqueue_post_css($css)
+    {
         wp_register_style('roark-custom-post-style', false);
         wp_enqueue_style('roark-custom-post-style');
         wp_add_inline_style('roark-custom-post-style', $css);
