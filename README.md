@@ -8,6 +8,6 @@ The landing page displays the latest work.
 
 ![](/img/main.jpg)
 
-The overview of the projects can be customized with colors individual colors for each project.
+The overview of the projects can be customized with individual colors for each project.
 
 ![](/img/work.jpg)
