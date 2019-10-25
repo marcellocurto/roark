@@ -25,8 +25,7 @@ let dist = './assets/',
   styleSRCEditor = './src/scss/editor-style.scss',
   scriptPath = './src/js/',
   scriptSRC = [
-    scriptPath + 'google_analytics.js',
-    scriptPath + 'night.js',
+    scriptPath + 'google_analytics.js'
   ],
   styleWatch = './src/scss/**/*.scss',
   scriptWatch = './src/js/**/*.js',
