@@ -104,14 +104,33 @@
                     <span class="icon-wrapper icon-more"><a href="/about" class="link-more"> <i class="fas fa-arrow-right"></i> </a></span>
                 </div>
             </div>
-            <div class="post-part-2">
-                <div class="image-wrapper">
-                    <a href="/about"> <?php echo PG_Image::getPostImage( null, 'large', array(
-                                'class' => 'attachment-medium size-medium wp-post-image wp-post-image wp-post-image wp-post-image',
-                                'sizes' => '(max-width: 1024px) 100vw, 1024px'
-                        ), null, null ) ?> </a>
-                </div>
-            </div>
+
+<?php if (has_post_thumbnail()): ?>
+<div class="post-part-2">
+    <div class="image-wrapper">
+        <a href="<?php echo esc_url(get_permalink()); ?>">
+
+        <picture>
+
+        <?php
+        $image_sizes = 'large';
+        $image_dark = get_field('night_image');
+
+        if( $image_dark ) {
+            $srcset_dark = wp_get_attachment_image_srcset($image_dark, $image_sizes);
+            echo '<source media="(prefers-color-scheme: dark)" srcset="' . $srcset_dark . '">';
+        }
+        ?>
+        
+        <?php echo get_the_post_thumbnail( null, $image_sizes ); ?>
+
+        </picture>
+
+        </a>
+    </div>
+</div>
+<?php endif; ?>
+
         </article>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>
