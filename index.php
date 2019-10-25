@@ -86,47 +86,52 @@ if (have_posts()):
 
     <?php endif; ?>
 
-<?php if (!is_post_type_archive('about')): ?>
-    <div class="date-wrapper">
-        <p><?php echo get_the_time('Y'); ?></p>
-    </div>
-<?php endif; ?>
+    <?php if (!is_post_type_archive('about')): ?>
+        <div class="date-wrapper">
+            <p><?php echo get_the_time('Y'); ?></p>
+        </div>
+    <?php endif; ?>
 
-<div class="more-wrapper">
-    <span class="icon-wrapper"><a href="<?php echo esc_url(get_permalink()); ?>"> <i class="fas fa-arrow-right"></i> </a></span>
+    <div class="more-wrapper">
+        <span class="icon-wrapper">
+        <a href="<?php echo esc_url(get_permalink()); ?>"> <i class="fas fa-arrow-right"></i> </a>
+        </span>
+    </div>
 </div>
-</div>
+
+<?php if (has_post_thumbnail()): ?>
 <div class="post-part-2">
     <div class="image-wrapper">
         <a href="<?php echo esc_url(get_permalink()); ?>">
 
-<?php
-$size = 'large';
-echo PG_Image::getPostImage(null, $size, array(
-    'class' => 'image-post-' . $id_of_post . ' attachment-medium size-medium wp-post-image wp-post-image wp-post-image wp-post-image',
-    'sizes' => '(max-width: 1024px) 100vw, 1024px',
-), null, null)
-;
+        <picture>
 
-$alternate_image = get_field('night_image');
-if ($alternate_image) {
-    $dark_image[] = wp_get_attachment_image($alternate_image, $size, array(
-        'class' => 'image-post-' . $id_of_post . ' attachment-medium size-medium wp-post-image wp-post-image wp-post-image wp-post-image',
-        'sizes' => '(max-width: 1024px) 100vw, 1024px'));
-}
-?>
-                    </a>
-                </div>
-            </div>
-        </article>
-    <?php
-endwhile;
-else: ?>
-    <p><?php _e('Sorry, no posts matched your criteria.', 'roark_agency_theme'); ?></p>
-<?php
-endif;
-if (PG_Pagination::isPaginated()):
-?>
+        <?php
+        $image_sizes = 'large';
+        $image_dark = get_field('night_image');
+
+        if( $image_dark ) {
+            $srcset_dark = wp_get_attachment_image_srcset($image_dark, $image_sizes);
+            echo '<source media="(prefers-color-scheme: dark)" srcset="' . $srcset_dark . '">';
+        }
+        ?>
+        
+        <?php echo get_the_post_thumbnail( null, $image_sizes ); ?>
+
+        </picture>
+
+        </a>
+    </div>
+</div>
+<?php endif; ?>
+
+</article>
+
+<?php endwhile; else: ?>
+
+ <p><?php _e('Sorry, no posts matched your criteria.', 'roark_agency_theme'); ?></p>
+
+<?php endif; if (PG_Pagination::isPaginated()): ?>
     <div class="pagination">
         <?php if (PG_Pagination::getCurrentPage() > 1): ?>
             <a class="pagination-link" <?php echo PG_Pagination::getPreviousHrefAttribute(); ?>><i class="fas fa-long-arrow-alt-left"></i></a>
@@ -155,6 +160,5 @@ if (!empty($custom_css_light) || !empty($custom_css_dark)) {
 
     do_action('custom_style_action', $custom_css);
 }
-print_r($dark_image);
 get_footer();
 ?>
