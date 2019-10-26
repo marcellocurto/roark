@@ -572,10 +572,6 @@ footer {
   .wp-block-quote:not(.is-large):not(.is-style-large) {
     border-left: 2px solid #4b6975; } }
 
-.infinite-scroll #navigation,
-.infinite-scroll.neverending #footer {
-  display: none; }
-
 .cookie-sidebar {
   display: flex;
   flex-direction: row;
@@ -586,6 +582,14 @@ footer {
   right: auto;
   align-items: center;
   justify-content: center; }
+
+section#comments {
+  padding: 40px; }
+  section#comments input#author,
+  section#comments input#email,
+  section#comments input#url {
+    border: none;
+    border-bottom: 2px solid black; }
 
 /*
 

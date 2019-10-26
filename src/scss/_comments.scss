@@ -1,0 +1,12 @@
+// comments.scss
+
+section#comments {
+  padding: $margin-lg;
+
+  input#author,
+  input#email,
+  input#url {
+    border: none;
+    border-bottom: 2px solid black;
+  }
+}

@@ -122,6 +122,10 @@ $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient
     <p><?php _e( 'Sorry, no posts matched your criteria.', 'roark_agency_theme' ); ?></p>
 <?php endif; ?>
 
+<section id="comments">
+<?php comments_template(); ?>
+</section>
+
 <?php
 if ( !empty($custom_css_light) || !empty($custom_css_dark) ) {
     add_action( 'custom_style_action', 'roark_enqueue_post_css', 10, 1 );
