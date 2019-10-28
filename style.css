@@ -489,6 +489,9 @@ h1 {
   .date-singular p {
     font-size: 19px; }
 
+.no-posts {
+  padding: 0 40px; }
+
 footer {
   display: flex;
   padding: 20px 40px;

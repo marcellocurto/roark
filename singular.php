@@ -133,7 +133,7 @@ $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient
 <?php endwhile; ?>
 
 <?php else : ?>
-    <p><?php _e( 'Sorry, no posts matched your criteria.', 'roark_agency_theme' ); ?></p>
+    <p class="no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'roark_agency_theme' ); ?></p>
 <?php endif; ?>
 
 

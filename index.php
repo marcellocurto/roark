@@ -135,7 +135,7 @@ if (have_posts()):
 
 <?php endwhile; else: ?>
 
- <p><?php _e('Sorry, no posts matched your criteria.', 'roark_agency_theme'); ?></p>
+ <p class="no-posts"><?php _e('Sorry, no posts matched your criteria.', 'roark_agency_theme'); ?></p>
 
 <?php endif; if (PG_Pagination::isPaginated()): ?>
     <div class="pagination">
