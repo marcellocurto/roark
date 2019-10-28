@@ -151,4 +151,32 @@
   .wp-block-quote:not(.is-large):not(.is-style-large) {
     border-left: 2px solid $border-color-dark;
   }
+
+  section#comments {
+    input#author,
+    input#email,
+    input#url,
+    textarea#comment,
+    article.comment-body {
+      border-color: $border-color-dark;
+      color: $color-white;
+    }
+
+    input#submit {
+      border-color: $border-color-dark;
+      transition: background-color 0.3s ease-in-out;
+      color: $color-white;
+    }
+
+    input#submit:hover {
+      border-color: $color-hover-dark;
+    }
+
+    textarea#comment:focus,
+    input#author:focus,
+    input#email:focus,
+    input#url:focus {
+      border-color: $color-hover-dark;
+    }
+  }
 }

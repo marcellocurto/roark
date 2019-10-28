@@ -32,6 +32,10 @@ footer {
     flex-direction: row-reverse;
 }
 
+h1 {
+    margin-bottom: 3px;
+}
+
 .post-part-1 {
     flex: 1;
     display: flex;
@@ -189,4 +193,13 @@ footer {
 
 .more-front {
     margin-top: 0;
+}
+
+.date-singular {
+    margin-bottom: $margin-lg;
+    text-align: center;
+
+    p {
+        font-size: $size-quote;
+    }
 }

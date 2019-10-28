@@ -115,10 +115,20 @@ $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient
     <div class="content-wrapper">
         <?php the_content(); ?>
     </div>
+
+    <?php if ( get_post_type() === 'post' ) : ?>
+    <section class="date-wrapper date-singular">
+        <p><?php _e( 'Published on:', 'roark_agency_theme' ); ?></p>
+        <p><?php echo get_the_time('F jS Y'); ?></p>
+    </section>
+    <?php endif; ?>
+
+    <?php if ( comments_open() ) : ?>
     <section id="comments">
         <h2>Comments</h2>
         <?php comments_template(); ?>
     </section>
+    <?php endif; ?>
 </article>
 <?php endwhile; ?>
 

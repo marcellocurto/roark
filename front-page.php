@@ -69,7 +69,7 @@
             <div class="post-part-1">
                 <a href="/blog"><h1><?php _e( 'Blog', 'roark_agency_theme' ); ?></h1></a>
                 <div class="excerpt-wrapper">
-                    <p>Essays, tutorials & interviews.</p>
+                    <p><?php _e( 'Essays, tutorials & interviews.', 'roark_agency_theme' ); ?></p>
                 </div>
                 <div class="more-wrapper more-front">
                     <span class="icon-wrapper icon-more"><a href="/blog" class="link-more"> <i class="fas fa-arrow-right"></i> </a></span>
@@ -179,7 +179,7 @@
 <?php if (has_post_thumbnail()): ?>
 <div class="post-part-2">
     <div class="image-wrapper">
-        <a href="<?php echo esc_url(get_permalink()); ?>">
+        <a href="/about">
 
         <picture>
 

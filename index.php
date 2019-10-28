@@ -87,9 +87,15 @@ if (have_posts()):
     <?php endif; ?>
 
     <?php if (!is_post_type_archive('about')): ?>
+        <?php if ( get_post_type() === 'post' ) : ?>
+        <section class="date-wrapper date-singular">
+            <p><?php echo get_the_time('F j Y'); ?></p>
+        </section>
+        <?php else: ?>
         <div class="date-wrapper">
             <p><?php echo get_the_time('Y'); ?></p>
         </div>
+        <?php endif; ?>
     <?php endif; ?>
 
     <div class="more-wrapper">

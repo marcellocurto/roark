@@ -358,6 +358,9 @@ footer {
 .post-wrapper:nth-child(even) {
   flex-direction: row-reverse; }
 
+h1 {
+  margin-bottom: 3px; }
+
 .post-part-1 {
   flex: 1;
   display: flex;
@@ -480,6 +483,12 @@ footer {
 .more-front {
   margin-top: 0; }
 
+.date-singular {
+  margin-bottom: 40px;
+  text-align: center; }
+  .date-singular p {
+    font-size: 19px; }
+
 footer {
   display: flex;
   padding: 20px 40px;
@@ -578,6 +587,7 @@ section#comments {
     text-align: right; }
   section#comments #respond {
     margin-top: 40px; }
+  section#comments h3,
   section#comments label {
     margin-bottom: 8px; }
   section#comments textarea#comment:focus,
@@ -585,25 +595,6 @@ section#comments {
   section#comments input#email:focus,
   section#comments input#url:focus {
     border-color: #0000ff; }
-  @media (prefers-color-scheme: dark) {
-    section#comments input#author,
-    section#comments input#email,
-    section#comments input#url,
-    section#comments textarea#comment,
-    section#comments article.comment-body {
-      border-color: #4b6975;
-      color: #ffffff; }
-    section#comments input#submit {
-      border-color: #4b6975;
-      transition: background-color 0.3s ease-in-out;
-      color: #ffffff; }
-    section#comments input#submit:hover {
-      border-color: yellow; }
-    section#comments textarea#comment:focus,
-    section#comments input#author:focus,
-    section#comments input#email:focus,
-    section#comments input#url:focus {
-      border-color: yellow; } }
 
 /*
 
@@ -5221,6 +5212,24 @@ readers do not read off random characters that represent icons */
     border: none;
     background-color: #2a3d46; }
   .wp-block-quote:not(.is-large):not(.is-style-large) {
-    border-left: 2px solid #4b6975; } }
+    border-left: 2px solid #4b6975; }
+  section#comments input#author,
+  section#comments input#email,
+  section#comments input#url,
+  section#comments textarea#comment,
+  section#comments article.comment-body {
+    border-color: #4b6975;
+    color: #ffffff; }
+  section#comments input#submit {
+    border-color: #4b6975;
+    transition: background-color 0.3s ease-in-out;
+    color: #ffffff; }
+  section#comments input#submit:hover {
+    border-color: yellow; }
+  section#comments textarea#comment:focus,
+  section#comments input#author:focus,
+  section#comments input#email:focus,
+  section#comments input#url:focus {
+    border-color: yellow; } }
 
 /*# sourceMappingURL=style.css.map */
