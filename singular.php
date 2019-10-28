@@ -116,8 +116,9 @@ $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient
         <?php the_content(); ?>
     </div>
     <section id="comments">
-<?php comments_template(); ?>
-</section>
+        <h2>Comments</h2>
+        <?php comments_template(); ?>
+    </section>
 </article>
 <?php endwhile; ?>
 
