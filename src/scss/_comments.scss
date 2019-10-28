@@ -1,12 +1,149 @@
 // comments.scss
 
 section#comments {
-  padding: $margin-lg;
+  width: 100%;
+  max-width: $max-width-content;
+  margin-bottom: $margin-sm;
+
+  p {
+    font-size: $size-quote;
+  }
+
+  header,
+  article,
+  footer {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  article {
+    margin-bottom: $margin-lg;
+  }
+
+  footer {
+    margin-bottom: $margin-sm / 2;
+  }
+
+  p {
+    margin-bottom: $margin-sm;
+  }
 
   input#author,
   input#email,
   input#url {
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid $color-black;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input#submit {
+    border: 2px solid $color-black;
+    background-color: transparent;
+    padding: $margin-sm / 2;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  input#submit:hover {
+    border-color: $color-accent;
+  }
+
+  textarea#comment {
+    background-color: transparent;
+    line-height: 1.4em;
+    border: 2px solid $color-black;
+    padding: $margin-sm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  p.comment-form-comment,
+  p.comment-form-author,
+  p.comment-form-url,
+  p.comment-form-email {
+    display: flex;
+    flex-direction: column;
+  }
+
+  p.form-submit {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  p.comment-form-cookies-consent,
+  p.comment-notes,
+  label {
+    line-height: 1.2em;
+    font-size: $size-p - 8px;
+  }
+
+  input#wp-comment-cookies-consent {
+    margin-right: 12px;
+  }
+
+  li.depth-2,
+  li.depth-3,
+  li.depth-4,
+  li.depth-5 {
+    padding-left: $margin-sm;
+  }
+
+  article.comment-body {
+    margin-bottom: $margin-sm;
+    border: 1px solid $color-black;
+    border-color: #00000085;
+    border-bottom: 2px solid $color-black;
+    border-right: 1px solid $color-black;
+    padding: 20px;
+  }
+
+  .reply {
+    text-align: right;
+  }
+
+  #respond {
+      margin-top: $margin-lg;
+  }
+
+  label {
+      margin-bottom: 8px;
+  }
+
+  textarea#comment:focus,
+  input#author:focus,
+  input#email:focus,
+  input#url:focus {
+    border-color: $color-accent;
+   }
+
+  @media (prefers-color-scheme: dark) {
+    input#author,
+    input#email,
+    input#url,
+    textarea#comment,
+    article.comment-body {
+      border-color: $border-color-dark;
+      color: $color-white;
+    }
+
+    input#submit {
+      border-color: $border-color-dark;
+      transition: background-color 0.3s ease-in-out;
+      color: $color-white;
+    }
+
+    input#submit:hover {
+      border-color: $color-hover-dark;
+    }
+
+    textarea#comment:focus,
+    input#author:focus,
+    input#email:focus,
+    input#url:focus {
+      border-color: $color-hover-dark;
+     }
   }
 }

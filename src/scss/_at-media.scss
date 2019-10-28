@@ -91,6 +91,26 @@
   .contact-single {
     margin-bottom: $margin-sm;
   }
+  section#comments {
+    li.depth-2,
+    li.depth-3,
+    li.depth-4,
+    li.depth-5 {
+      padding-left: 0;
+    }
+
+    footer {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+
+    .comment-author.vcard {
+      margin-top: $margin-sm / 2;
+    }
+    .comment-metadata {
+      font-size: 12px;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {

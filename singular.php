@@ -115,6 +115,9 @@ $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient
     <div class="content-wrapper">
         <?php the_content(); ?>
     </div>
+    <section id="comments">
+<?php comments_template(); ?>
+</section>
 </article>
 <?php endwhile; ?>
 
@@ -122,9 +125,7 @@ $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient
     <p><?php _e( 'Sorry, no posts matched your criteria.', 'roark_agency_theme' ); ?></p>
 <?php endif; ?>
 
-<section id="comments">
-<?php comments_template(); ?>
-</section>
+
 
 <?php
 if ( !empty($custom_css_light) || !empty($custom_css_dark) ) {

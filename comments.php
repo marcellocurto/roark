@@ -1,8 +1,12 @@
 <?php
-comment_form();
-wp_list_comments(array(
+wp_list_comments([
     'style' => 'ul',
     'type' => 'comment',
-    'avatar_size' => '0',
+    'avatar_size' => '32',
     'format' => 'html5',
-));
+]);
+
+$comment_form_args = [
+    'title_reply' => 'Write a Comment',
+];
+comment_form($comment_form_args);

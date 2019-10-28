@@ -79,7 +79,7 @@ footer {
     font-size: 20px;
     padding: 0 $margin-lg $margin-lg;
     width: 100%;
-    max-width: 900px;
+    max-width: $max-width-content;
 
     p a {
         text-decoration: underline;
@@ -127,7 +127,7 @@ footer {
     padding: 0;
     margin-bottom: $margin-lg;
     width: 100%;
-    max-width: 900px;
+    max-width: $max-width-content;
 }
 
 .mgl-gallery {

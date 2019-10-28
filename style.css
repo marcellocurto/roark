@@ -4,7 +4,7 @@ Theme URI: https://roark.at
 Author: Marcello Curto
 Author URI: https://marcellocurto.com
 Description: Just an agency theme.
-Version: 3.0
+Version: 3.1
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: roark_agency_theme
@@ -295,7 +295,7 @@ nav {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 20px; }
+  padding: 20px 40px; }
 
 .text-logo {
   text-transform: uppercase;
@@ -482,7 +482,7 @@ footer {
 
 footer {
   display: flex;
-  padding: 20px;
+  padding: 20px 40px;
   justify-content: space-between;
   flex-direction: row;
   clear: both; }
@@ -490,87 +490,6 @@ footer {
 .footer-text-logo {
   font-weight: bold;
   text-transform: uppercase; }
-
-@media (max-width: 766px) {
-  p,
-  .content-wrapper ul {
-    font-size: 20px;
-    line-height: 1.4; }
-  h1 {
-    font-size: 32px;
-    line-height: 1em; }
-  .content-wrapper li {
-    margin: 0; }
-  .content-wrapper h3 {
-    font-size: 1.2em;
-    line-height: 1.4em;
-    margin-top: 40px; }
-  .post-wrapper {
-    flex-direction: column;
-    min-height: 0; }
-    .post-wrapper .wp-block-file {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; }
-    .post-wrapper .wp-block-file a.wp-block-file__button {
-      margin-left: 0px;
-      margin-top: 20px; }
-  .post-wrapper:nth-child(even) {
-    flex-direction: column; }
-  footer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center; }
-  footer .site-description {
-    margin-top: 10px;
-    margin-bottom: 10px; }
-  .hero-landing,
-  nav {
-    flex-direction: column;
-    align-items: center; }
-  header .menu-item {
-    padding: 0 20px;
-    margin-top: 10px; }
-  .text-logo {
-    margin-bottom: 5px; }
-  .post-part-2 {
-    padding-top: 0; }
-  .excerpt-wrapper {
-    padding-top: 20px;
-    padding-bottom: 20px; }
-  .title-wrapper {
-    margin-bottom: 20px; }
-  .image-single {
-    margin-bottom: 20px; }
-  .wp-block-quote {
-    margin: 0 0 20px 0; }
-  .contact-single {
-    margin-bottom: 20px; } }
-
-@media (prefers-color-scheme: dark) {
-  html,
-  body {
-    background-color: #2a3d46;
-    color: #ffffff; }
-  a {
-    text-decoration: none;
-    color: #ffffff; }
-  a:hover {
-    color: yellow; }
-  .menu li a:hover,
-  .text-logo a:hover {
-    color: yellow; }
-  header,
-  article {
-    border-bottom: 2px solid #4b6975; }
-  footer {
-    border-top: 2px solid #4b6975; }
-  .wp-block-code {
-    border: none;
-    background-color: #2a3d46; }
-  .wp-block-quote:not(.is-large):not(.is-style-large) {
-    border-left: 2px solid #4b6975; } }
 
 .cookie-sidebar {
   display: flex;
@@ -584,12 +503,104 @@ footer {
   justify-content: center; }
 
 section#comments {
-  padding: 40px; }
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px; }
+  section#comments p {
+    font-size: 19px; }
+  section#comments header,
+  section#comments article,
+  section#comments footer {
+    border: none;
+    padding: 0;
+    margin: 0; }
+  section#comments article {
+    margin-bottom: 40px; }
+  section#comments footer {
+    margin-bottom: 10px; }
+  section#comments p {
+    margin-bottom: 20px; }
   section#comments input#author,
   section#comments input#email,
   section#comments input#url {
     border: none;
-    border-bottom: 2px solid black; }
+    border-bottom: 2px solid #000000;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column; }
+  section#comments input#submit {
+    border: 2px solid #000000;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px; }
+  section#comments input#submit:hover {
+    border-color: #0000ff; }
+  section#comments textarea#comment {
+    background-color: transparent;
+    line-height: 1.4em;
+    border: 2px solid #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; }
+  section#comments p.comment-form-comment,
+  section#comments p.comment-form-author,
+  section#comments p.comment-form-url,
+  section#comments p.comment-form-email {
+    display: flex;
+    flex-direction: column; }
+  section#comments p.form-submit {
+    display: flex;
+    justify-content: flex-end; }
+  section#comments p.comment-form-cookies-consent,
+  section#comments p.comment-notes,
+  section#comments label {
+    line-height: 1.2em;
+    font-size: 16px; }
+  section#comments input#wp-comment-cookies-consent {
+    margin-right: 12px; }
+  section#comments li.depth-2,
+  section#comments li.depth-3,
+  section#comments li.depth-4,
+  section#comments li.depth-5 {
+    padding-left: 20px; }
+  section#comments article.comment-body {
+    margin-bottom: 20px;
+    border: 1px solid #000000;
+    border-color: #00000085;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    padding: 20px; }
+  section#comments .reply {
+    text-align: right; }
+  section#comments #respond {
+    margin-top: 40px; }
+  section#comments label {
+    margin-bottom: 8px; }
+  section#comments textarea#comment:focus,
+  section#comments input#author:focus,
+  section#comments input#email:focus,
+  section#comments input#url:focus {
+    border-color: #0000ff; }
+  @media (prefers-color-scheme: dark) {
+    section#comments input#author,
+    section#comments input#email,
+    section#comments input#url,
+    section#comments textarea#comment,
+    section#comments article.comment-body {
+      border-color: #4b6975;
+      color: #ffffff; }
+    section#comments input#submit {
+      border-color: #4b6975;
+      transition: background-color 0.3s ease-in-out;
+      color: #ffffff; }
+    section#comments input#submit:hover {
+      border-color: yellow; }
+    section#comments textarea#comment:focus,
+    section#comments input#author:focus,
+    section#comments input#email:focus,
+    section#comments input#url:focus {
+      border-color: yellow; } }
 
 /*
 
@@ -5115,5 +5126,98 @@ readers do not read off random characters that represent icons */
 .far {
   font-family: 'Font Awesome 5 Free';
   font-weight: 400; }
+
+@media (max-width: 766px) {
+  p,
+  .content-wrapper ul {
+    font-size: 20px;
+    line-height: 1.4; }
+  h1 {
+    font-size: 32px;
+    line-height: 1em; }
+  .content-wrapper li {
+    margin: 0; }
+  .content-wrapper h3 {
+    font-size: 1.2em;
+    line-height: 1.4em;
+    margin-top: 40px; }
+  .post-wrapper {
+    flex-direction: column;
+    min-height: 0; }
+    .post-wrapper .wp-block-file {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; }
+    .post-wrapper .wp-block-file a.wp-block-file__button {
+      margin-left: 0px;
+      margin-top: 20px; }
+  .post-wrapper:nth-child(even) {
+    flex-direction: column; }
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; }
+  footer .site-description {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .hero-landing,
+  nav {
+    flex-direction: column;
+    align-items: center; }
+  header .menu-item {
+    padding: 0 20px;
+    margin-top: 10px; }
+  .text-logo {
+    margin-bottom: 5px; }
+  .post-part-2 {
+    padding-top: 0; }
+  .excerpt-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .title-wrapper {
+    margin-bottom: 20px; }
+  .image-single {
+    margin-bottom: 20px; }
+  .wp-block-quote {
+    margin: 0 0 20px 0; }
+  .contact-single {
+    margin-bottom: 20px; }
+  section#comments li.depth-2,
+  section#comments li.depth-3,
+  section#comments li.depth-4,
+  section#comments li.depth-5 {
+    padding-left: 0; }
+  section#comments footer {
+    flex-direction: column-reverse;
+    align-items: flex-start; }
+  section#comments .comment-author.vcard {
+    margin-top: 10px; }
+  section#comments .comment-metadata {
+    font-size: 12px; } }
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #2a3d46;
+    color: #ffffff; }
+  a {
+    text-decoration: none;
+    color: #ffffff; }
+  a:hover {
+    color: yellow; }
+  .menu li a:hover,
+  .text-logo a:hover {
+    color: yellow; }
+  header,
+  article {
+    border-bottom: 2px solid #4b6975; }
+  footer {
+    border-top: 2px solid #4b6975; }
+  .wp-block-code {
+    border: none;
+    background-color: #2a3d46; }
+  .wp-block-quote:not(.is-large):not(.is-style-large) {
+    border-left: 2px solid #4b6975; } }
 
 /*# sourceMappingURL=style.css.map */

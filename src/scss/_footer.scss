@@ -1,7 +1,7 @@
 //footer.scss
 footer {
     display: flex;
-    padding: $margin-sm;
+    padding: $margin-sm $margin-lg;
     justify-content: space-between;
     flex-direction: row;
     clear: both;

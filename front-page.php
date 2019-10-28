@@ -22,20 +22,91 @@
                     <span class="icon-wrapper icon-more"><a href="/work" class="link-more"> <i class="fas fa-arrow-right"></i> </a></span>
                 </div>
             </div>
-            <div class="post-part-2">
-                <div class="image-wrapper">
-                    <a href="/work"> <?php echo PG_Image::getPostImage( null, 'large', array(
-                                'class' => 'attachment-medium size-medium wp-post-image wp-post-image wp-post-image wp-post-image',
-                                'sizes' => '(max-width: 1024px) 100vw, 1024px'
-                        ), null, null ) ?> </a>
-                </div>
-            </div>
+            <?php if (has_post_thumbnail()): ?>
+<div class="post-part-2">
+    <div class="image-wrapper">
+        <a href="<?php echo esc_url(get_permalink()); ?>">
+
+        <picture>
+
+        <?php
+        $image_sizes = 'large';
+        $image_dark = get_field('night_image');
+
+        if( $image_dark ) {
+            $srcset_dark = wp_get_attachment_image_srcset($image_dark, $image_sizes);
+            echo '<source media="(prefers-color-scheme: dark)" srcset="' . $srcset_dark . '">';
+        }
+        ?>
+        
+        <?php echo get_the_post_thumbnail( null, $image_sizes ); ?>
+
+        </picture>
+
+        </a>
+    </div>
+</div>
+<?php endif; ?>
         </article>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>
-<?php else : ?>
-    <p><?php _e( 'Sorry, no posts matched your criteria.', 'roark_agency_theme' ); ?></p>
 <?php endif; ?>
+
+
+
+<?php
+    $blog_query_args = array(
+        'posts_per_page' => 1,
+        'order' => 'DESC',
+        'orderby' => 'date'
+    )
+?>
+<?php $blog_query = new WP_Query( $blog_query_args ); ?>
+<?php if ( $blog_query->have_posts() ) : ?>
+    <?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+        <?php PG_Helper::rememberShownPost(); ?>
+        <article <?php post_class( 'post-wrapper' ); ?> id="post-<?php the_ID(); ?>">
+            <div class="post-part-1">
+                <a href="/blog"><h1><?php _e( 'Blog', 'roark_agency_theme' ); ?></h1></a>
+                <div class="excerpt-wrapper">
+                    <p>Essays, tutorials & interviews.</p>
+                </div>
+                <div class="more-wrapper more-front">
+                    <span class="icon-wrapper icon-more"><a href="/blog" class="link-more"> <i class="fas fa-arrow-right"></i> </a></span>
+                </div>
+            </div>
+            <?php if (has_post_thumbnail()): ?>
+<div class="post-part-2">
+    <div class="image-wrapper">
+        <a href="/blog">
+
+        <picture>
+
+        <?php
+        $image_sizes = 'large';
+        $image_dark = get_field('night_image');
+
+        if( $image_dark ) {
+            $srcset_dark = wp_get_attachment_image_srcset($image_dark, $image_sizes);
+            echo '<source media="(prefers-color-scheme: dark)" srcset="' . $srcset_dark . '">';
+        }
+        ?>
+        
+        <?php echo get_the_post_thumbnail( null, $image_sizes ); ?>
+
+        </picture>
+
+        </a>
+    </div>
+</div>
+<?php endif; ?>
+        </article>
+    <?php endwhile; ?>
+    <?php wp_reset_postdata(); ?>
+<?php endif; ?>
+
+
+
 <?php
     $about_query_args = array(
         'post_type' => 'about',
@@ -134,8 +205,6 @@
         </article>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>
-<?php else : ?>
-    <p><?php _e( 'Sorry, no posts matched your criteria.', 'roark_agency_theme' ); ?></p>
 <?php endif; ?>
 
 <?php get_footer(); ?>
