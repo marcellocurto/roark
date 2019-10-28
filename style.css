@@ -5209,7 +5209,7 @@ readers do not read off random characters that represent icons */
   footer {
     border-top: 2px solid #4b6975; }
   .wp-block-code {
-    border: none;
+    border-color: #4b6975;
     background-color: #2a3d46; }
   .wp-block-quote:not(.is-large):not(.is-style-large) {
     border-left: 2px solid #4b6975; }
