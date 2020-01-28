@@ -171,6 +171,9 @@ p.has-white-color {
 p.has-accent-color {
   color: #0000ff; }
 
+.wp-block-gallery ul.blocks-gallery-grid {
+  margin: 0; }
+
 .wp-block-pullquote,
 .wp-block-pullquote p,
 .wp-block-quote,
@@ -289,6 +292,10 @@ cite {
   border-left: 2px solid #000000;
   background-color: #ffffff;
   margin-bottom: 40px; }
+
+.editor-styles-wrapper p,
+p.block-editor-rich-text__editable.editor-rich-text__editable.wp-block-paragraph {
+  font-size: 19px; }
 
 nav {
   display: flex;
