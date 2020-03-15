@@ -140,7 +140,13 @@ if (have_posts()):
 <?php endif; if (PG_Pagination::isPaginated()): ?>
     <div class="pagination">
         <?php if (PG_Pagination::getCurrentPage() > 1): ?>
-            <a class="pagination-link" <?php echo PG_Pagination::getPreviousHrefAttribute(); ?>><i class="fas fa-long-arrow-alt-left"></i></a>
+            <a class="pagination-link" <?php echo PG_Pagination::getPreviousHrefAttribute(); ?>>
+                <i class="fas fa-long-arrow-alt-left"></i>
+            </a>
+        <?php else: ?>
+            <div class="pagination-link" style="visibility: hidden;">
+                <i class="fas fa-long-arrow-alt-left"></i>
+            </div>
         <?php endif; ?>
         <div>
             <span><?php echo PG_Pagination::getCurrentPage(); ?></span>
@@ -148,7 +154,13 @@ if (have_posts()):
             <span><?php echo PG_Pagination::getMaxPages(); ?></span>
         </div>
         <?php if (PG_Pagination::getCurrentPage() < PG_Pagination::getMaxPages()): ?>
-            <a class="pagination-link" <?php echo PG_Pagination::getNextHrefAttribute(); ?>><i class="fas fa-long-arrow-alt-right"></i></a>
+            <a class="pagination-link" <?php echo PG_Pagination::getNextHrefAttribute(); ?>>
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </a>
+            <?php else: ?>
+            <div class="pagination-link" style="visibility: hidden;">
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </div>
         <?php endif; ?>
     </div>
 <?php
