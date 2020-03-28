@@ -36,10 +36,19 @@ if (empty($right_dark)) {
     $right_dark .= '#ffffff00';
 }
 
-$custom_css_light .= '#post-' . $id_of_post . ' {background-image:linear-gradient(to ' . $direction_color . ', ' . $left_light . ', ' . $right_light . ')} ';
+// $custom_css_light .= '#post-' . $id_of_post . ' {background-image:linear-gradient(to ' . $direction_color . ', ' . $left_light . ', ' . $right_light . ')} ';
 
-$custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient(to ' . $direction_color . ', ' . $left_dark . ', ' . $right_dark . ')} ';
+// $custom_css_dark .= '#post-' . $id_of_post . ' {background-image:linear-gradient(to ' . $direction_color . ', ' . $left_dark . ', ' . $right_dark . ')} ';
+
+$background_html_direction = $direction_color;
+if ($direction_color == 'top') { $background_html_direction = 'bottom'; } 
+elseif ($direction_color == 'bottom') { $background_html_direction = 'top'; } 
+
+$custom_css_light .= 'html { background-color:' . $left_light . '; background-image:linear-gradient(to ' . $background_html_direction . ', ' . $left_light . ', ' . $right_light . ')}  body {background-color:' . $left_light . '; background-image:linear-gradient(to ' . $direction_color . ', ' . $left_light . ', ' . $right_light . ')} ';
+
+$custom_css_dark .= 'html { background-color:' . $left_dark . '; background-image:linear-gradient(to ' . $background_html_direction . ', ' . $left_dark . ', ' . $right_dark . ')}  body {background-color:' . $left_dark . '; background-image:linear-gradient(to ' . $direction_color . ', ' . $left_dark . ', ' . $right_dark . ')} ';
 ?>
+
 <article <?php post_class( 'post-wrapper single-page' ); ?> id="post-<?php the_ID(); ?>">
     <section class="title-wrapper">
         <h1 class="title-single-page"><?php the_title(); ?></h1>
