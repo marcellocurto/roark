@@ -1,9 +1,9 @@
 <?php
 wp_list_comments([
-    'style' => 'ul',
-    'type' => 'comment',
+    'style'       => 'ul',
+    'type'        => 'comment',
     'avatar_size' => '32',
-    'format' => 'html5',
+    'format'      => 'html5',
 ]);
 
 $comment_form_args = [

@@ -23,16 +23,29 @@ let dist = './assets/',
   phpSRC = './**/*.php',
   styleSRC = './src/scss/style.scss',
   styleSRCEditor = './src/scss/editor-style.scss',
-  scriptPath = './src/js/',
-  scriptSRC = [
-    scriptPath + 'google_analytics.js'
-  ],
+  styleSRCLogin = './src/scss/login.scss',
+  scriptSRC = './src/js/**/*.js',
   styleWatch = './src/scss/**/*.scss',
-  scriptWatch = './src/js/**/*.js',
   phpWatch = './**/*.php';
 
 function css(cb) {
   gulp.src(styleSRC)
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      errorLogToConsole: true,
+    }))
+    .on('error', console.error.bind(console))
+    .pipe(autoprefixer({
+      cascade: false,
+    }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest(production));
+  cb();
+};
+
+function css_login(cb) {
+  gulp.src(styleSRCLogin)
     .pipe(sourcemaps.init())
     .pipe(sass({
       errorLogToConsole: true,
@@ -79,19 +92,17 @@ function php(cb) {
 };
 
 function deploy(cb) {
-    gulp.src('./icons/**')
-    .pipe(gulp.dest(production + 'icons/'));
-    gulp.src('./inc/**')
+  gulp.src('./inc/**')
     .pipe(gulp.dest(production + 'inc/'));
-    gulp.src('./screenshot.png')
+  gulp.src('./screenshot.png')
     .pipe(gulp.dest(production));
-    cb();
+  cb();
 };
 
 
 function watch(cb) {
   gulp.watch(styleWatch, css);
-  gulp.watch(scriptWatch, javascript);
+  gulp.watch(scriptSRC, javascript);
   gulp.watch(phpWatch, php);
   cb();
 };
@@ -101,5 +112,5 @@ exports.javascript = javascript;
 exports.php = php;
 exports.watch = watch;
 
-let build = gulp.parallel([watch, css, css_editor, javascript, php, deploy]);
+let build = gulp.parallel([watch, css, css_editor, css_login, javascript, php, deploy]);
 gulp.task('default', build);

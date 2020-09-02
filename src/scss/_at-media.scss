@@ -1,28 +1,38 @@
 @media (max-width: 766px) {
   p,
   .content-wrapper ul {
-    font-size: 20px;
-    line-height: 1.4;
+    font-size: 18px;
+    line-height: 1.4em;
   }
 
   h1 {
     font-size: 32px;
     line-height: 1em;
   }
+  .content-wrapper {
+    padding: 0 0 20px;
 
-  .content-wrapper li {
-    margin: 0;
-  }
+    li {
+      margin: 0;
+    }
 
-  .content-wrapper h3 {
-    font-size: 1.2em;
-    line-height: 1.4em;
-    margin-top: $margin-lg;
+    h3 {
+      font-size: 1.2em;
+      line-height: 1.4em;
+      margin-top: $margin-lg;
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 1.3em;
+      padding-top: 0;
+    }
   }
 
   .post-wrapper {
     flex-direction: column;
     min-height: 0;
+    padding: 20px 15px 0;
 
     .wp-block-file {
       display: flex;

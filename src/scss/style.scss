@@ -4,7 +4,7 @@ Theme URI: https://roark.at
 Author: Marcello Curto
 Author URI: https://marcellocurto.com
 Description: Just an agency theme.
-Version: 3.1
+Version: 3.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: roark_agency_theme
@@ -19,12 +19,4 @@ Text Domain: roark_agency_theme
 @import "_plugins.scss";
 @import "_comments.scss";
 @import "_atom-one-light-and-dark.scss";
-
-$fa-font-path: 'icons';
-
-@import "font-aweseome/fontawesome.scss";
-@import "font-aweseome/solid.scss";
-@import "font-aweseome/brands.scss";
-@import "font-aweseome/regular.scss";
-
 @import "_at-media.scss";

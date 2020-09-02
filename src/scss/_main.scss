@@ -91,6 +91,7 @@ h1 {
 
     p {
         margin-bottom: $margin-sm;
+        font-family: $font-apo;
     }
 
     h3 {
@@ -156,7 +157,10 @@ h1 {
 .icon-wrapper {
     margin-left: 5px;
     margin-right: 5px;
-    font-size: 25px;
+    svg {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 .pagination {
@@ -172,6 +176,8 @@ h1 {
 .pagination-link {
     padding: $margin-sm;
     font-size: 20px;
+    width: 22px;
+    height: 27px;
 }
 
 .title-wrapper {

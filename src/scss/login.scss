@@ -1,0 +1,65 @@
+@import "_normalize.scss";
+@import "_shared-styles.scss";
+
+body.login.js.login-action-login.wp-core-ui {
+    color: $color-black;
+    background-color: $color-white;
+    background-image: linear-gradient(to right, #ffeb8c, #a22841);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid #efc97f;
+    box-sizing: border-box;
+}
+
+.login h1 a {
+    color: $color-black;
+    background-image: none;
+    text-indent: 0;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 34px;
+    text-transform: uppercase;
+    &:hover {
+        color: $color-accent;
+    }
+}
+
+#login {
+    padding: 0;
+}
+
+.backtoblog,
+p.forgetmenot,
+.galogin-or,
+p.submit,
+#login form p,
+#login form p.submit,
+.user-pass-wrap,
+.login #nav,
+.login #backtoblog,
+.login .privacy-policy-page-link {
+    display: none;
+}
+
+.login-button {
+    color: $color-black;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 34px;
+    text-transform: uppercase;
+    &:hover {
+        color: $color-accent;
+    }
+}
+
+.login form {
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
